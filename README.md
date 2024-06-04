@@ -4,10 +4,15 @@ This module can be used to load the .env and other config in nest js project. En
 
 ### Instructions
 
-- Install module `npm i @salman3001/nest-config-module`
+- Install module
+
+```typescript
+ npm i @salman3001/nest-config-module
+```
+
 - import config modules and register in root module
 
-```
+```typescript
 import { ConfigModule } from '@salman3001/nest-config-module';
 
 imports: [
@@ -26,17 +31,16 @@ imports: [
 - provide env file path and and config class.
 - A config class will implement a IConfig interface
 
-```
-<!-- test config -->
+```typescript
+// test config
 
 import { IConfig } from './interfaces/IConfig';
 
-export class Config implements IConfig  {
-
-    // Return enviroment variables from this function.
-    // Do not define the return types (important).
-     envs() {
-      return {
+export class Config implements IConfig {
+  // Return enviroment variables from this function.
+  // Do not define the return types (important).
+  envs() {
+    return {
       NODE_ENV: process.env.NODE_ENV as string,
       PORT: process.env.PORT as string,
       APP_SECRETE: process.env.APP_SECRETE as string,
@@ -46,21 +50,20 @@ export class Config implements IConfig  {
       PG_USERNAME: process.env.PG_USERNAME as string,
       PG_PASSWORD: process.env.PG_PASSWORD as string,
       PG_DB: process.env.PG_DB as string,
-      };
-    }
-
-    //add other config
-    app_name = 'nest app';
-    app_meta = {
-      url:'some url',
     };
-}
+  }
 
+  //add other config
+  app_name = 'nest app';
+  app_meta = {
+    url: 'some url',
+  };
+}
 ```
 
 - Config will be available globally in all modules. Import in constructor and start using as below.
 
-```
+```typescript
 import { Config } from 'src/config/config';
 import { ConfigService } from '@salman3001/nest-config-module';
 
@@ -71,7 +74,7 @@ export class AuthController {
   ) {
 
    login() {
-    <!-- using config -->
+    // using config
     console.log(this.config.get<Config>().envs().NODE_ENV)
     }
   }
