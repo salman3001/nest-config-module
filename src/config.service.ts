@@ -9,9 +9,7 @@ export class ConfigService {
     @Inject(CONFIG_OPT)
     public opt: IConfigOptions,
   ) {
-    console.log(this.opt.envFile);
     dotEnv({ path: this.opt.envFile });
-    console.log(this.opt.config.envs());
     this.varifyEnvs();
   }
 

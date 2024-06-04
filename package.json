@@ -1,5 +1,5 @@
 {
-  "name": "nest-config-module",
+  "name": "@salman3001/nest-config-module",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -9,9 +9,22 @@
     "build": "rimraf dist && tsc",
     "prepublish": "npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "/dist",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "nest js",
+    "config",
+    "module",
+    "enviroment variables"
+  ],
+  "author": "salman",
   "license": "ISC",
+  "repository": {
+    "url": "https://github.com/salman3001/nest-config-module"
+  },
   "dependencies": {
     "@nestjs/common": "^10.3.9",
     "dotenv": "^16.4.5",
